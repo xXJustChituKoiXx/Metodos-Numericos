@@ -37,9 +37,9 @@ pip install sympy
 | Método | Responsable | Estado | Notas |
 |---|---|:---:|---|
 | Lagrange | FERNANDO | ⚠️ | |
-| Neville | ISIS | ⚠️ | Interfaz, conectar con página |
+| Neville | ISIS | ✅ |  |
 | Diferencias divididas | RICARDO | ⚠️ | Interfaz gráfica |
-| Igualmente espaciados | ISIS | ⚠️ | |
+| Igualmente espaciados | ISIS | ✅ | |
 | Hermite | FERNANDO | ❗ | |
 | Splines cúbicos | RICARDO | ⚠️ | TODO ALV |
 
@@ -47,7 +47,7 @@ pip install sympy
 
 | Método | Responsable | Estado |
 |---|---|:---:|
-| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ❗ |
+| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ |
 | Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |
 | Fórmula 3 puntos igual espaciada | RICARDO | ❗ |
 
@@ -55,12 +55,12 @@ pip install sympy
 
 | Método | Responsable | Estado |
 |---|---|:---:|
-| Trapecio (simple y compuesto) | ISIS | ❗ |
+| Trapecio (simple y compuesto) | ISIS | ✅ |
 | Simpson 1/3 (simple y compuesto) | FERNANDO | ❗ |
 | Simpson 3/8 (simple y compuesto) | RICARDO | ❗ |
 | Extrapolación de Richardson y Romberg | FERNANDO | ❗ |
 | Cuadratura adaptativa | RICARDO | ❗ |
-| Cuadratura gaussiana (simple y compuesto) | ISIS | ❗ |
+| Cuadratura gaussiana (simple y compuesto) | ISIS | ✅ |
 | Integración múltiple (Trapecio compuesto...) | FERNANDO | ❗ |
 
 ## Programas para testear
