@@ -33,7 +33,7 @@ toggleSwitch.addEventListener('change', (e) => {
 const parc1Button = document.getElementById('parc1');
 const parc2Button = document.getElementById('parc2');
 const parc3Button = document.getElementById('parc3');
-
+const parc4Button = document.getElementById('parc4');
 
 parc1Button.addEventListener("click", () => {
     //vacear el aside y el article para cambiar de parcial o metodo
@@ -165,6 +165,24 @@ parc3Button.addEventListener("click", () => {
     buttons[2].addEventListener("click", () => {
         article.innerHTML = "";
         gaussiana_init();
+    });
+
+    aside.appendChild(menuButtons);
+});
+
+parc3Button.addEventListener("click", () => {
+    aside.innerHTML = "";
+    article.innerHTML = "";
+
+    const menuMethods = [
+        {"text" : "Aun no hay nada jaja xd"}
+    ];
+
+    const menuButtons = createMenuButton("div","menu-metodos","menu-metodos","methods-parc1-btn",menuMethods);
+    const buttons = menuButtons.querySelectorAll(".methods-parc1-btn");
+
+    buttons[0].addEventListener("click", () => {
+        article.innerHTML = "";
     });
 
     aside.appendChild(menuButtons);
