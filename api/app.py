@@ -11,7 +11,12 @@ from modelos import (
     MullerModel,
     HornerModel,
     DeflacionModel,
-    LagrangeModel
+    LagrangeModel,
+    NevilleModel,
+    IgualmenteEspaciadosModel,
+    Derivacion2PuntosModel,
+    TrapecioModel,
+    GaussianaModel,
 )
 
 from parcial1.float_to_bin import float_to_bin
@@ -25,6 +30,11 @@ from parcial1.deflacion import ctr_deflacion
 from parcial1.bisexion import biseccion
 from parcial1.steffensen import ctr_Steff
 from parcial2.lagrange import lagrange_method
+from parcial1.neville import ctr_neville
+from parcial1.Igualmente_esp import ctr_igualmente_espaciados
+from parcial2.Derivacion.derivacion_2puntos import ctr_derivacion_2puntos
+from parcial2.Integracion.trapecio import ctr_trapecio
+from parcial2.Integracion.gaussiana import ctr_gaussiana
 
 app = FastAPI()
 
@@ -79,3 +89,23 @@ def calcular_Deflacion(data: DeflacionModel):
 @app.post("/lagrange")
 def calcular_lagrange(data: LagrangeModel):
     return lagrange_method(data)
+
+@app.post("/neville")
+def calcular_neville(data: NevilleModel):
+    return ctr_neville(data)
+
+@app.post("/igualmente_espaciados")
+def calcular_igualmente_espaciados(data: IgualmenteEspaciadosModel):
+    return ctr_igualmente_espaciados(data)
+
+@app.post("/derivacion_2puntos")
+def calcular_derivacion_2puntos(data: Derivacion2PuntosModel):
+    return ctr_derivacion_2puntos(data)
+
+@app.post("/trapecio")
+def calcular_trapecio(data: TrapecioModel):
+    return ctr_trapecio(data)
+
+@app.post("/gaussiana")
+def calcular_gaussiana(data: GaussianaModel):
+    return ctr_gaussiana(data)

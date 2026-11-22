@@ -67,3 +67,31 @@ class DeflacionModel(BaseModel):
 class LagrangeModel(BaseModel):
     puntos: Union[str, List[List[float]]]
     x_evaluar: Optional[float] = None
+
+class NevilleModel(BaseModel):
+    puntos: Union[str, List[List[float]]]
+    x_evaluar: float
+
+class IgualmenteEspaciadosModel(BaseModel):
+    x0: float
+    h: float
+    y_vals: Union[str, List[float]]
+    x_evaluar: float
+
+class Derivacion2PuntosModel(BaseModel):
+    function: str
+    x: float
+    h: float
+
+class TrapecioModel(BaseModel):
+    function: str
+    a: float
+    b: float
+    n: int = 1             
+
+class GaussianaModel(BaseModel):
+    function: str
+    a: float
+    b: float
+    n: int = 2             
+    m: int = 1             

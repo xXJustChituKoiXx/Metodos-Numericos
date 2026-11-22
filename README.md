@@ -37,38 +37,38 @@ pip install sympy
 | Método | Responsable | Estado | Notas |
 |---|---|:---:|---|
 | Lagrange | FERNANDO | ✅ | |
-| Neville | ISIS | ⚠️ | Interfaz, conectar con página |
-| Diferencias divididas | RICARDO | ✅ | |
-| Igualmente espaciados | ISIS | ⚠️ | |
-| Hermite | FERNANDO | ⚠️ | |
-| Splines cúbicos | RICARDO | ⚠️ |  |
+| Neville | ISIS | ✅ |  |
+| Diferencias divididas | RICARDO | ⚠️ | Interfaz gráfica |
+| Igualmente espaciados | ISIS | ✅ | |
+| Hermite | FERNANDO | ❗ | |
+| Splines cúbicos | RICARDO | ❗ | TODO ALV |
 
 ## Derivación
 
-| Método | Responsable | Estado |
-|---|---|:---:|
-| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ❗ |
-| Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |
-| Fórmula 3 puntos igual espaciada | RICARDO | ❗ |
+| Método | Responsable | Estado | Notas |     
+|---|---|:---:|  |
+| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ |  |
+| Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |  |
+| Fórmula 3 puntos igual espaciada | RICARDO | ❗ |  |
 
 ## Integración
 
-| Método | Responsable | Estado |
-|---|---|:---:|
-| Trapecio (simple y compuesto) | ISIS | ❗ |
-| Simpson 1/3 (simple y compuesto) | FERNANDO | ❗ |
-| Simpson 3/8 (simple y compuesto) | RICARDO | ❗ |
-| Extrapolación de Richardson y Romberg | FERNANDO | ❗ |
-| Cuadratura adaptativa | RICARDO | ❗ |
-| Cuadratura gaussiana (simple y compuesto) | ISIS | ❗ |
-| Integración múltiple (Trapecio compuesto...) | FERNANDO | ❗ |
+| Método | Responsable | Estado | Notas |
+|---|---|:---:|  |
+| Trapecio (simple y compuesto) | ISIS | ✅ |  |
+| Simpson 1/3 (simple y compuesto) | FERNANDO | ❗ |  |
+| Simpson 3/8 (simple y compuesto) | RICARDO | ❗ |  |
+| Extrapolación de Richardson y Romberg | FERNANDO | ❗ |  |
+| Cuadratura adaptativa | RICARDO | ❗ |  |
+| Cuadratura gaussiana (simple y compuesto) | ISIS | ✅ |  |
+| Integración múltiple (Trapecio compuesto...) | FERNANDO | ❗ |  |
 
 ## Ecuaciones Diferenciasles
-| Método | Responsable | Estado |
-|---|---|:---:|
-| Euler |  | ❗ |
-| Taylor de Orden n|  | ❗ |
-| Runge Kutta |  | ❗ |
+| Método | Responsable | Estado | Notas |
+|---|---|:---:|  |
+| Euler |  | ❗ |  |
+| Taylor de Orden n|  | ❗ |  |
+| Runge Kutta |  | ❗ |  |
 
 ## Programas para testear
 
