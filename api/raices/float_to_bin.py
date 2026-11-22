@@ -1,5 +1,6 @@
-from auxiliares import *
 from fastapi import HTTPException, status
+
+from auxiliares import dec_to_bin, int_to_bin, normalizar_bin
 
 def float_to_bin(data):
     #validar los bits y asignar tamaños

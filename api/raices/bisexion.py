@@ -3,12 +3,6 @@
 
 ##tabla: i| a | b | c | f(a) - signo|f(c)|f(b)|Error abs
 # x**3 -2, podria hacer un try catch para el formato
-import sys
-import os
-
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
 from auxiliares import construir_funcion
 
 def sign_of(y):

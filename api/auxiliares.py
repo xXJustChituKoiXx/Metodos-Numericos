@@ -1,7 +1,11 @@
-import math
 import cmath
-from sympy.parsing.sympy_parser import (parse_expr, standard_transformations, implicit_multiplication_application)
+import math
 
+from sympy.parsing.sympy_parser import (
+    implicit_multiplication_application,
+    parse_expr,
+    standard_transformations,
+)
 FUNCIONES_PERMITIDAS = {
     "sin": math.sin,
     "cos": math.cos,

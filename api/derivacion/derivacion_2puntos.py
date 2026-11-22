@@ -1,9 +1,4 @@
-import sys, os
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
 from auxiliares import construir_funcion
-
 
 def _derivacion(data):
     f = construir_funcion(data.function)

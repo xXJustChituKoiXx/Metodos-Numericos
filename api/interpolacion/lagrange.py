@@ -1,9 +1,9 @@
 from auxiliares import (
+    escalar_coeficientes,
+    evaluar_coeficientes,
+    limpiar_ceros,
     multiplicar_por_factor,
     sumar_coeficientes,
-    escalar_coeficientes,
-    limpiar_ceros,
-    evaluar_coeficientes
 )
 
 def Lagrange(puntos, x_evaluar=None) -> dict:

@@ -1,7 +1,4 @@
-import sys, os, re
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
+import re
 
 def _parse_yvals(y_vals):
     if isinstance(y_vals, list):

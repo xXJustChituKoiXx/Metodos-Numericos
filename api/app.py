@@ -1,40 +1,41 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from derivacion.derivacion_2puntos import ctr_derivacion_2puntos
+from integracion.gaussiana import ctr_gaussiana
+from integracion.trapecio import ctr_trapecio
+from interpolacion.diferiencias_divididas import ...  # ajusta el nombre de la función según el archivo
+from interpolacion.Igualmente_esp import ctr_igualmente_espaciados
+from interpolacion.lagrange import lagrange_method
+from interpolacion.neville import ctr_neville
 from modelos import (
-    FloatNumberModel,
     BisexionModel,
-    SecanteModel,
+    DeflacionModel,
+    Derivacion2PuntosModel,
+    FakePositionModel,
+    FloatNumberModel,
+    GaussianaModel,
+    HornerModel,
+    IgualmenteEspaciadosModel,
+    LagrangeModel,
+    MullerModel,
+    NevilleModel,
     NewthonRaphsonModel,
     PuntoFijoModel,
-    FakePositionModel,
+    SecanteModel,
     SteffencenModel,
-    MullerModel,
-    HornerModel,
-    DeflacionModel,
-    LagrangeModel,
-    NevilleModel,
-    IgualmenteEspaciadosModel,
-    Derivacion2PuntosModel,
     TrapecioModel,
-    GaussianaModel,
 )
-
-from parcial1.float_to_bin import float_to_bin
-from parcial1.secante import sec_method
-from parcial1.punto_fijo import pf_method
-from parcial1.falsa_posicion import fake_position_metod
-from parcial1.newthon_raphson import newton_raphson
-from parcial1.muller import muller_method
-from parcial1.horner import horner_method
-from parcial1.deflacion import ctr_deflacion
-from parcial1.bisexion import biseccion
-from parcial1.steffensen import ctr_Steff
-from parcial2.lagrange import lagrange_method
-from parcial1.neville import ctr_neville
-from parcial1.Igualmente_esp import ctr_igualmente_espaciados
-from parcial2.Derivacion.derivacion_2puntos import ctr_derivacion_2puntos
-from parcial2.Integracion.trapecio import ctr_trapecio
-from parcial2.Integracion.gaussiana import ctr_gaussiana
+from raices.bisexion import biseccion
+from raices.deflacion import ctr_deflacion
+from raices.falsa_posicion import fake_position_metod
+from raices.float_to_bin import float_to_bin
+from raices.horner import horner_method
+from raices.muller import muller_method
+from raices.newthon_raphson import newton_raphson
+from raices.punto_fijo import pf_method
+from raices.secante import sec_method
+from raices.steffensen import ctr_Steff
 
 app = FastAPI()
 

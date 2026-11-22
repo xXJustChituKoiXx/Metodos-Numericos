@@ -1,12 +1,7 @@
-import sys
-import os
-
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
 from auxiliares import construir_funcion
-from .bisexion import biseccion
 from modelos import BisexionModel
+
+from .bisexion import biseccion
 #primero se saca con otro metodo 2 aproximaciones p0 y p1
 #despues usando la formula p0 - (p1-p0)**2/(p2 -2p1 + p0)
 N_ITERAR = 3

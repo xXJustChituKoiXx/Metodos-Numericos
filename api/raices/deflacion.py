@@ -6,17 +6,13 @@ asi por ekemplo usamos Newthon-Rhapson y sacamos una raiz, bajamos un grado y sa
 otra hasta que sea de grado 1 y solo sea un despeje
 
 '''
-import sys
-import os
 import cmath
 
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
-from polinomio import Polinomio
-from auxiliares import crear_funcion_compleja,convertir_complex
-from .muller import muller_method
+from auxiliares import convertir_complex, crear_funcion_compleja
 from modelos import MullerModel
+from polinomio import Polinomio
+
+from .muller import muller_method
 
 def Deflacion(polinom, data):
     

@@ -1,5 +1,6 @@
-from parcial1.secante import Secante
 from auxiliares import construir_funcion
+
+from .secante import Secante
 
 
 def fake_position_metod(data):

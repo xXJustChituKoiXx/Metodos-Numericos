@@ -1,8 +1,3 @@
-import sys, os
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
-
-
 def _parse_puntos(puntos):
     if isinstance(puntos, list):
         return [[float(p[0]), float(p[1])] for p in puntos]

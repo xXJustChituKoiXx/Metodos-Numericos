@@ -1,7 +1,6 @@
-import sys, os
 from math import sqrt
-ruta_api = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(ruta_api)
+
+from auxiliares import construir_funcion
 
 from auxiliares import construir_funcion
 

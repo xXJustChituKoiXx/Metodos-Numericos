@@ -1,5 +1,6 @@
 import cmath
-from auxiliares import crear_funcion_compleja,convertir_complex
+
+from auxiliares import convertir_complex, crear_funcion_compleja
 def muller_method(data):
 
     f = crear_funcion_compleja(data.function)
