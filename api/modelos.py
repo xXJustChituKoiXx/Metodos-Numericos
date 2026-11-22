@@ -120,3 +120,9 @@ class GaussianaModel(BaseModel):
 class SplinesModel(BaseModel):
     puntos: Union[str, List[List[float]]]
     x_evaluar: Optional[float] = None
+
+class Derivacion3PuntosModel(BaseModel):
+    function: Optional[str] = None
+    puntos: Optional[Union[str, List[List[float]]]] = None
+    x: Optional[float] = None
+    h: Optional[float] = None

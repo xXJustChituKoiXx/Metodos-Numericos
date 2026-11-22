@@ -39,6 +39,8 @@ from raices.newthon_raphson import newton_raphson
 from raices.punto_fijo import pf_method
 from raices.secante import sec_method
 from raices.steffensen import ctr_Steff
+from derivacion.derivacion_3_puntos import ctr_derivacion_3puntos
+from modelos import Derivacion3PuntosModel
 
 app = FastAPI()
 
@@ -121,3 +123,7 @@ def calcular_gaussiana(data: GaussianaModel):
 @app.post("/splines")
 def splines_cubicos(data:SplinesModel):
     return ctr_splines(data)
+
+@app.post("/derivacion_3puntos")
+def calcular_derivacion_3puntos(data: Derivacion3PuntosModel):
+    return ctr_derivacion_3puntos(data)

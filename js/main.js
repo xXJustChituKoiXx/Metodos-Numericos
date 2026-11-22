@@ -17,6 +17,7 @@ import { trapecio_init } from "./integracion/trapecio.js";
 import { gaussiana_init } from "./integracion/gaussiana.js";
 import { diferencias_divididas_init } from "./interpolacion/dif_divididas.js";
 import { splines_init } from "./interpolacion/splines_cubicos.js"
+import { derivacion_3puntos_init } from "./derivacion/derivacion_3_puntos.js";
 
 const aside = document.querySelector("aside");
 const article = document.querySelector("article");
@@ -155,8 +156,9 @@ parc3Button.addEventListener("click", () => {
     aside.innerHTML = "";
     article.innerHTML = "";
 
-    const menuMethods = [
+const menuMethods = [
         {"text" : "Derivacion 2 puntos"},
+        {"text" : "Derivacion 3 puntos"},
         {"text" : "Regla del Trapecio"},
         {"text" : "Cuadratura Gaussiana"}
     ];
@@ -171,10 +173,15 @@ parc3Button.addEventListener("click", () => {
 
     buttons[1].addEventListener("click", () => {
         article.innerHTML = "";
-        trapecio_init();
+        derivacion_3puntos_init();
     });
 
     buttons[2].addEventListener("click", () => {
+        article.innerHTML = "";
+        trapecio_init();
+    });
+
+    buttons[3].addEventListener("click", () => {
         article.innerHTML = "";
         gaussiana_init();
     });

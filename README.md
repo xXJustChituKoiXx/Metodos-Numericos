@@ -49,7 +49,7 @@ python -m uvicorn app:app --reload
 |---|:---:|:---:|---|
 | Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ | Terminado |
 | Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |  |
-| Fórmula 3 puntos igual espaciada | RICARDO | ❗ |  |
+| Fórmula 3 puntos igual espaciada | RICARDO | ✅ | Terminado |
 
 ## Integración
 
