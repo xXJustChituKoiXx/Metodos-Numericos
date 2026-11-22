@@ -46,7 +46,7 @@ pip install sympy
 ## Derivación
 
 | Método | Responsable | Estado | Notas |     
-|---|---|:---:|  |
+|---|:---:|:---:|---|
 | Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ |  |
 | Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |  |
 | Fórmula 3 puntos igual espaciada | RICARDO | ❗ |  |
@@ -54,7 +54,7 @@ pip install sympy
 ## Integración
 
 | Método | Responsable | Estado | Notas |
-|---|---|:---:|  |
+|---|:---:|:---:|---|
 | Trapecio (simple y compuesto) | ISIS | ✅ |  |
 | Simpson 1/3 (simple y compuesto) | FERNANDO | ❗ |  |
 | Simpson 3/8 (simple y compuesto) | RICARDO | ❗ |  |
@@ -65,7 +65,7 @@ pip install sympy
 
 ## Ecuaciones Diferenciasles
 | Método | Responsable | Estado | Notas |
-|---|---|:---:|  |
+|---|:---:|:---:|---|
 | Euler |  | ❗ |  |
 | Taylor de Orden n|  | ❗ |  |
 | Runge Kutta |  | ❗ |  |
