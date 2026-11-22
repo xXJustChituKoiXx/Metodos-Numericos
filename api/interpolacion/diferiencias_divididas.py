@@ -3,31 +3,9 @@ from auxiliares import (
     evaluar_coeficientes,
     limpiar_ceros,
     multiplicar_por_factor,
+    parse_puntos,
     sumar_coeficientes,
 )
-
-
-def _parse_puntos(puntos):
-    if isinstance(puntos, list):
-        pares = []
-        for p in puntos:
-            if not isinstance(p, (list, tuple)) or len(p) != 2:
-                raise ValueError(f"Punto invalido: '{p}'")
-            pares.append([float(p[0]), float(p[1])])
-        return pares
-
-    txt = str(puntos).replace("\n", ";")
-    pares = []
-    for chunk in txt.split(";"):
-        chunk = chunk.strip()
-        if not chunk:
-            continue
-        vals = chunk.split(",")
-        if len(vals) != 2:
-            raise ValueError(f"Punto invalido: '{chunk}' (debe ser 'x,y')")
-        pares.append([float(vals[0].strip()), float(vals[1].strip())])
-    return pares
-
 
 def diferencias_divididas(puntos):
     n = len(puntos)
@@ -100,7 +78,7 @@ def construir_newton(puntos, coeficientes):
 
 
 def interpolacion_newton(puntos, x_evaluar=None):
-    pares = _parse_puntos(puntos)
+    pares = parse_puntos(puntos)
     n = len(pares)
     if n < 2:
         return {

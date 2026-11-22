@@ -110,8 +110,6 @@ def convertir_complex(valor):
     return valor
 
 
-# --- FUNCIONES AUXILIARES MATEMÁTICAS PARA POLINOMIOS / INTERPOLACIÓN ---
-
 def multiplicar_por_factor(coeficientes: list, r: float) -> list:
     n = len(coeficientes)
     A = coeficientes + [0.0]
@@ -138,3 +136,24 @@ def evaluar_coeficientes(coeficientes: list, x: float) -> float:
     for c in coeficientes:
         y = y * x + c
     return y
+
+def parse_puntos(puntos) -> list:
+    if isinstance(puntos, list):
+        pares = []
+        for p in puntos:
+            if not isinstance(p, (list, tuple)) or len(p) != 2:
+                raise ValueError(f"Punto invalido: '{p}'")
+            pares.append([float(p[0]), float(p[1])])
+        return pares
+
+    txt = str(puntos).replace("\n", ";")
+    pares = []
+    for chunk in txt.split(";"):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        vals = chunk.split(",")
+        if len(vals) != 2:
+            raise ValueError(f"Punto invalido: '{chunk}' (debe ser 'x,y')")
+        pares.append([float(vals[0].strip()), float(vals[1].strip())])
+    return pares

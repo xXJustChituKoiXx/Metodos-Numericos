@@ -116,3 +116,7 @@ class GaussianaModel(BaseModel):
     b: float
     n: int = 2
     m: int = 1
+
+class SplinesModel(BaseModel):
+    puntos: Union[str, List[List[float]]]
+    x_evaluar: Optional[float] = None

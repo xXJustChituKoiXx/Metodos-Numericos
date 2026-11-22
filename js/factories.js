@@ -47,6 +47,13 @@ function createSpan(idSpan, claseCss, texto) {
     return span;
 }
 
+function createSubscript(texto, claseCss = "poly-subscript") {
+    const sub = document.createElement("sub");
+    sub.className = claseCss;
+    sub.textContent = texto;
+    return sub;
+}
+
 function createTable(idTabla, claseCss) {
     let table = document.createElement("table");
     table.id = idTabla;
@@ -74,7 +81,7 @@ function createTh(idCabecera, claseCss, texto) {
     th.id = idCabecera;
     th.className = claseCss;
     th.textContent = texto;
-    return th;    
+    return th;
 }
 
 function createMenuButton(tipoContenedor, idContenedor, claseContenedor, claseBoton, listaBotones = []) {
@@ -94,7 +101,12 @@ function createGenericTable(idTabla, claseCss, titulosColumnas = [], matrizDatos
     const filaEncabezado = createTr("tr-encabezado", "tr-encabezado");
 
     titulosColumnas.forEach((textoCabecera, indiceColumna) => {
-        const th = createTh("th-" + indiceColumna, "th-tabla", textoCabecera);
+        const th = createTh("th-" + indiceColumna, "th-tabla", "");
+        if (textoCabecera instanceof HTMLElement) {
+            th.appendChild(textoCabecera);
+        } else {
+            th.textContent = textoCabecera;
+        }
         filaEncabezado.appendChild(th);
     });
 
@@ -183,7 +195,7 @@ function createPolynomial(idContenedor, claseCss, coeficientes) {
 function createChartCanvas(idSeccion, idCanvas, tituloGrafica = "Grafica de Resultados") {
     let section = createSection(idSeccion, "main-section-lagrange");
     let div = createDiv("", "inputs-div");
-    
+
     let h2 = document.createElement("h2");
     h2.textContent = tituloGrafica;
     div.appendChild(h2);
@@ -192,10 +204,10 @@ function createChartCanvas(idSeccion, idCanvas, tituloGrafica = "Grafica de Resu
     let canvas = document.createElement("canvas");
     canvas.id = idCanvas;
     graficaContainer.appendChild(canvas);
-    
+
     div.appendChild(graficaContainer);
     section.appendChild(div);
-    
+
     return section;
 }
 
@@ -233,7 +245,7 @@ function renderizarGraficaMultiplesPolinomios(idCanvas, listaPolinomiosCoeficien
     });
 
     const todosLosPuntosOriginales = listaPuntosIntervalos.flat().map(p => ({ x: p[0], y: p[1] }));
-    
+
     datasets.push({
         label: 'Puntos Originales',
         data: todosLosPuntosOriginales,
@@ -259,7 +271,8 @@ export {
     createMenuButton,
     createGenericTable,
     createSpan,
+    createSubscript,
     createPolynomial,
     createChartCanvas,
-    renderizarGraficaMultiplesPolinomios 
+    renderizarGraficaMultiplesPolinomios
 };

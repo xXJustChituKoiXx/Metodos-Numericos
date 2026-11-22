@@ -4,9 +4,9 @@
 
 ```bash
 pip install fastapi
-python -m uvicorn app:app --reload
-python -m uvicorn api.app:app --reload
 pip install sympy
+cd api
+python -m uvicorn app:app --reload
 ```
 
 ## Estado de los métodos
@@ -19,35 +19,35 @@ pip install sympy
 
 ## Métodos numéricos (para raíces)
 
-| Método | Responsable | Estado |
-|---|---|:---:|
-| Flotante a Bin | RICARDO | ✅ |
-| Bisección | ISIS | ✅ |
-| Secante | FERNANDO | ✅ |
-| Falsa posición | RICARDO | ✅ |
-| Newton-Raphson | RICARDO | ✅ |
-| Punto Fijo | FERNANDO | ✅ |
-| Steffensen | ISIS | ✅ |
-| Deflación | ISIS | ✅ |
-| Horner | FERNANDO | ✅ |
-| Müller | RICARDO | ✅ |
+| Método | Responsable | Estado | Notas |
+|---|:---:|:---:|---|
+| Flotante a Bin | RICARDO | ✅ | Terminado |
+| Bisección | ISIS | ✅ | Terminado |
+| Secante | FERNANDO | ✅ | Terminado |
+| Falsa posición | RICARDO | ✅ | Terminado |
+| Newton-Raphson | RICARDO | ✅ | Terminado |
+| Punto Fijo | FERNANDO | ✅ | Terminado |
+| Steffensen | ISIS | ✅ | Terminado |
+| Deflación | ISIS | ✅ | Terminado |
+| Horner | FERNANDO | ✅ | Terminado |
+| Müller | RICARDO | ✅ | Terminado |
 
 ## Interpolaciones
 
 | Método | Responsable | Estado | Notas |
 |---|---|:---:|---|
-| Lagrange | FERNANDO | ✅ | |
-| Neville | ISIS | ✅ |  |
-| Diferencias divididas | RICARDO | ✅ |  |
-| Igualmente espaciados | ISIS | ✅ | |
+| Lagrange | FERNANDO | ✅ | Terminado |
+| Neville | ISIS | ✅ | Terminado |
+| Diferencias divididas | RICARDO | ✅ | Terminado |
+| Igualmente espaciados | ISIS | ✅ | Terminado |
 | Hermite | FERNANDO | ❗ | |
-| Splines cúbicos | RICARDO | ❗ | TODO ALV |
+| Splines cúbicos | RICARDO | ✅ | Terminado |
 
 ## Derivación
 
 | Método | Responsable | Estado | Notas |     
 |---|:---:|:---:|---|
-| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ |  |
+| Fórmula de 2 puntos (hacer serie de Taylor también) | ISIS | ✅ | Terminado |
 | Fórmula 2 puntos igual espaciada | FERNANDO | ❗ |  |
 | Fórmula 3 puntos igual espaciada | RICARDO | ❗ |  |
 
@@ -55,12 +55,12 @@ pip install sympy
 
 | Método | Responsable | Estado | Notas |
 |---|:---:|:---:|---|
-| Trapecio (simple y compuesto) | ISIS | ✅ |  |
+| Trapecio (simple y compuesto) | ISIS | ✅ | Terminado |
 | Simpson 1/3 (simple y compuesto) | FERNANDO | ❗ |  |
 | Simpson 3/8 (simple y compuesto) | RICARDO | ❗ |  |
 | Extrapolación de Richardson y Romberg | FERNANDO | ❗ |  |
 | Cuadratura adaptativa | RICARDO | ❗ |  |
-| Cuadratura gaussiana (simple y compuesto) | ISIS | ✅ |  |
+| Cuadratura gaussiana (simple y compuesto) | ISIS | ✅ | Terminado |
 | Integración múltiple (Trapecio compuesto...) | FERNANDO | ❗ |  |
 
 ## Ecuaciones Diferenciasles

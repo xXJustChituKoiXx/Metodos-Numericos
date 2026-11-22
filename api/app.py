@@ -8,6 +8,7 @@ from interpolacion.diferiencias_divididas import init_dif_divididas
 from interpolacion.Igualmente_esp import ctr_igualmente_espaciados
 from interpolacion.lagrange import lagrange_method
 from interpolacion.neville import ctr_neville
+from interpolacion.splines_cubicos import ctr_splines
 from modelos import (
     BisexionModel,
     DeflacionModel,
@@ -26,6 +27,7 @@ from modelos import (
     SecanteModel,
     SteffencenModel,
     TrapecioModel,
+    SplinesModel
 )
 from raices.bisexion import biseccion
 from raices.deflacion import ctr_deflacion
@@ -115,3 +117,7 @@ def calcular_trapecio(data: TrapecioModel):
 @app.post("/gaussiana")
 def calcular_gaussiana(data: GaussianaModel):
     return ctr_gaussiana(data)
+
+@app.post("/splines")
+def splines_cubicos(data:SplinesModel):
+    return ctr_splines(data)

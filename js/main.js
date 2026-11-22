@@ -16,6 +16,8 @@ import { derivacion_2puntos_init } from "./derivacion/derivacion_2puntos.js";
 import { trapecio_init } from "./integracion/trapecio.js";
 import { gaussiana_init } from "./integracion/gaussiana.js";
 import { diferencias_divididas_init } from "./interpolacion/dif_divididas.js";
+import { splines_init } from "./interpolacion/splines_cubicos.js"
+
 const aside = document.querySelector("aside");
 const article = document.querySelector("article");
 
@@ -116,6 +118,7 @@ parc2Button.addEventListener("click", () => {
         {"text" : "Neville"},
         {"text" : "Puntos igualmente espaciados"},
         {"text" : "Diferiencias divididas"},
+        {"text" : "Splines Cubicos"},
     ];
 
     //crea los elementos de este parcial
@@ -140,6 +143,10 @@ parc2Button.addEventListener("click", () => {
     buttons[3].addEventListener("click", () => {
         article.innerHTML = "";
         diferencias_divididas_init();
+    });
+    buttons[4].addEventListener("click", () => {
+        article.innerHTML = "";
+        splines_init();
     });
     aside.appendChild(menuButtons);
 });
