@@ -68,7 +68,11 @@ python -m uvicorn app:app --reload
 |---|:---:|:---:|---|
 | Euler | Ricardo | ❗ |  |
 | Taylor de Orden n| Isis | ❗ |  |
-| Runge Kutta | Fernando | ❗ |  |
+| Runge Kutta 2 | Fernando | ❗ |  |
+| Runge Kutta 4 | Ricardo | ❗ |  |
+| Runge Kutta Fehlberg | Isis | ❗ |  |
+| Adamds - Bashforth | Fernando | ❗ |  |
+| Adams - Moulton | Ricardo | ❗ |  |
 
 ## Programas para testear
 
