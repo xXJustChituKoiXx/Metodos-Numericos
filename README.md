@@ -66,9 +66,9 @@ pip install sympy
 ## Ecuaciones Diferenciasles
 | Método | Responsable | Estado | Notas |
 |---|:---:|:---:|---|
-| Euler |  | ❗ |  |
-| Taylor de Orden n|  | ❗ |  |
-| Runge Kutta |  | ❗ |  |
+| Euler | Ricardo | ❗ |  |
+| Taylor de Orden n| Isis | ❗ |  |
+| Runge Kutta | Fernando | ❗ |  |
 
 ## Programas para testear
 
