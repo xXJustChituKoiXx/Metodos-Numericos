@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from derivacion.derivacion_2puntos import ctr_derivacion_2puntos
 from integracion.gaussiana import ctr_gaussiana
 from integracion.trapecio import ctr_trapecio
-from interpolacion.diferiencias_divididas import ...  # ajusta el nombre de la función según el archivo
+from interpolacion.diferiencias_divididas import init_dif_divididas
 from interpolacion.Igualmente_esp import ctr_igualmente_espaciados
 from interpolacion.lagrange import lagrange_method
 from interpolacion.neville import ctr_neville
@@ -12,6 +12,7 @@ from modelos import (
     BisexionModel,
     DeflacionModel,
     Derivacion2PuntosModel,
+    DiferenciasDivididasModel,
     FakePositionModel,
     FloatNumberModel,
     GaussianaModel,
@@ -94,6 +95,10 @@ def calcular_lagrange(data: LagrangeModel):
 @app.post("/neville")
 def calcular_neville(data: NevilleModel):
     return ctr_neville(data)
+
+@app.post("/diferencias_divididas")
+def calcular_diferencias_divididas(data: DiferenciasDivididasModel):
+    return init_dif_divididas(data)
 
 @app.post("/igualmente_espaciados")
 def calcular_igualmente_espaciados(data: IgualmenteEspaciadosModel):

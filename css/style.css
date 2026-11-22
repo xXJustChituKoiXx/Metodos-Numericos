@@ -567,7 +567,7 @@ table {
 .polynomial-container {
     display: inline-flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 3px;
     font-size: 1.05rem;
     font-weight: bold;
     color: var(--text-primary);
@@ -582,9 +582,13 @@ table {
     gap: 2px;
 }
 
+sup,
 .poly-exponent {
-    font-size: 0.7rem;
-    vertical-align: super;
+    font-size: 0.72em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    top: -0.5em;
 }
 
 /* prepara el contenedor para la grafica */

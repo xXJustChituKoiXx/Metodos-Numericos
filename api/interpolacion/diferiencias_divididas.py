@@ -1,21 +1,64 @@
-def init_dif_divididas(data):
-    pass
+from auxiliares import (
+    escalar_coeficientes,
+    evaluar_coeficientes,
+    limpiar_ceros,
+    multiplicar_por_factor,
+    sumar_coeficientes,
+)
+
+
+def _parse_puntos(puntos):
+    if isinstance(puntos, list):
+        pares = []
+        for p in puntos:
+            if not isinstance(p, (list, tuple)) or len(p) != 2:
+                raise ValueError(f"Punto invalido: '{p}'")
+            pares.append([float(p[0]), float(p[1])])
+        return pares
+
+    txt = str(puntos).replace("\n", ";")
+    pares = []
+    for chunk in txt.split(";"):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        vals = chunk.split(",")
+        if len(vals) != 2:
+            raise ValueError(f"Punto invalido: '{chunk}' (debe ser 'x,y')")
+        pares.append([float(vals[0].strip()), float(vals[1].strip())])
+    return pares
+
+
 def diferencias_divididas(puntos):
     n = len(puntos)
-    tabla = [[punto[1]] for punto in puntos]
+    tabla = [[float(punto[1])] for punto in puntos]
 
     for nivel in range(1, n):
         for i in range(n - nivel):
-            x1 = puntos[i][0]
-            x2 = puntos[i + nivel][0]
+            x1 = float(puntos[i][0])
+            x2 = float(puntos[i + nivel][0])
+            denom = x2 - x1
+            if abs(denom) < 1e-15:
+                raise ValueError("Nodos repetidos en x")
 
             y1 = tabla[i][nivel - 1]
             y2 = tabla[i + 1][nivel - 1]
-
-            diferencia = (y2 - y1) / (x2 - x1)
-            tabla[i].append(diferencia)
+            tabla[i].append((y2 - y1) / denom)
 
     return tabla
+
+
+def _coeficientes_newton_dd(puntos, diffs_superiores):
+    """Construye [a_m, ..., a_1, a_0] a partir de los coeficientes de diferencias divididas."""
+    acumulado = [0.0]
+    base_poly = [1.0]
+
+    for i, c in enumerate(diffs_superiores):
+        if i > 0:
+            base_poly = multiplicar_por_factor(base_poly, float(puntos[i - 1][0]))
+        acumulado = sumar_coeficientes(acumulado, escalar_coeficientes(base_poly, c))
+
+    return limpiar_ceros(acumulado)
 
 
 def formato_numero(valor):
@@ -30,23 +73,19 @@ def formato_numero(valor):
 
 def construir_newton(puntos, coeficientes):
     n = len(puntos)
-
     polinomio = formato_numero(coeficientes[0])
 
     for i in range(1, n):
         coeficiente = coeficientes[i]
-
         if abs(coeficiente) < 1e-12:
             continue
 
         termino = ""
-
         if abs(abs(coeficiente) - 1) >= 1e-12:
             termino = formato_numero(abs(coeficiente))
 
         for j in range(i):
             x = puntos[j][0]
-
             if x >= 0:
                 termino += f"(x-{formato_numero(x)})"
             else:
@@ -60,19 +99,53 @@ def construir_newton(puntos, coeficientes):
     return polinomio
 
 
-def interpolacion_newton(puntos):
-    tabla = diferencias_divididas(puntos)
-    coeficientes = tabla[0]
+def interpolacion_newton(puntos, x_evaluar=None):
+    pares = _parse_puntos(puntos)
+    n = len(pares)
+    if n < 2:
+        return {
+            "coeficientes": [],
+            "tabla": [],
+            "mensaje": "Se requieren al menos 2 puntos.",
+        }
 
-    return construir_newton(puntos, coeficientes)
+    tabla_raw = diferencias_divididas(pares)
+    diffs_superiores = [tabla_raw[0][k] for k in range(n)]
+    coeficientes = _coeficientes_newton_dd(pares, diffs_superiores)
+
+    # Fila por punto: [i, x_i, y_i, f[x_i, x_{i+1}], ...]
+    tabla_formateada = []
+    for i in range(n):
+        fila = [i, pares[i][0], pares[i][1]]
+        for nivel in range(1, n):
+            fila.append(tabla_raw[i][nivel] if i < n - nivel else None)
+        tabla_formateada.append(fila)
+
+    evaluacion = None
+    if x_evaluar is not None:
+        x_val = float(x_evaluar)
+        evaluacion = {
+            "x": x_val,
+            "y": evaluar_coeficientes(coeficientes, x_val),
+        }
+
+    return {
+        "coeficientes": coeficientes,
+        "grado": len(coeficientes) - 1,
+        "tabla": tabla_formateada,
+        "n": n,
+        "evaluacion": evaluacion,
+        "polinomio_newton": construir_newton(pares, diffs_superiores),
+    }
 
 
-puntos = [
-    [1, 2],
-    [2, 5],
-    [4, 17]
-]
-
-resultado = interpolacion_newton(puntos)
-
-print(resultado)
+def init_dif_divididas(data):
+    try:
+        x_eval = getattr(data, "x_evaluar", None)
+        return interpolacion_newton(data.puntos, x_eval)
+    except Exception as e:
+        return {
+            "coeficientes": [],
+            "tabla": [],
+            "mensaje": f"Error: {e}",
+        }

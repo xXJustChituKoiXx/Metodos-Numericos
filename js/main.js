@@ -15,7 +15,7 @@ import { igualmente_espaciados_init } from "./interpolacion/igualmente_espaciado
 import { derivacion_2puntos_init } from "./derivacion/derivacion_2puntos.js";
 import { trapecio_init } from "./integracion/trapecio.js";
 import { gaussiana_init } from "./integracion/gaussiana.js";
-
+import { diferencias_divididas_init } from "./interpolacion/dif_divididas.js";
 const aside = document.querySelector("aside");
 const article = document.querySelector("article");
 
@@ -114,7 +114,8 @@ parc2Button.addEventListener("click", () => {
     const menuMethods = [
         {"text" : "Lagrange"},
         {"text" : "Neville"},
-        {"text" : "Puntos igualmente espaciados"}
+        {"text" : "Puntos igualmente espaciados"},
+        {"text" : "Diferiencias divididas"},
     ];
 
     //crea los elementos de este parcial
@@ -135,7 +136,11 @@ parc2Button.addEventListener("click", () => {
         article.innerHTML = "";
         igualmente_espaciados_init();
     });
-
+    
+    buttons[3].addEventListener("click", () => {
+        article.innerHTML = "";
+        diferencias_divididas_init();
+    });
     aside.appendChild(menuButtons);
 });
 
@@ -170,7 +175,7 @@ parc3Button.addEventListener("click", () => {
     aside.appendChild(menuButtons);
 });
 
-parc3Button.addEventListener("click", () => {
+parc4Button.addEventListener("click", () => {
     aside.innerHTML = "";
     article.innerHTML = "";
 

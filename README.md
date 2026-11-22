@@ -38,7 +38,7 @@ pip install sympy
 |---|---|:---:|---|
 | Lagrange | FERNANDO | ✅ | |
 | Neville | ISIS | ✅ |  |
-| Diferencias divididas | RICARDO | ⚠️ | Interfaz gráfica |
+| Diferencias divididas | RICARDO | ✅ |  |
 | Igualmente espaciados | ISIS | ✅ | |
 | Hermite | FERNANDO | ❗ | |
 | Splines cúbicos | RICARDO | ❗ | TODO ALV |
